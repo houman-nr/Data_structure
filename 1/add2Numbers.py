@@ -34,5 +34,16 @@ def QuadraticEqu():
 #find the roots of Quadratic equation
 
 
+#calculate the factorail of a number
+def factorial(i):
+    n = int(1)
+    if i == 0:
+        return n
+    for p in range(1, i + 1):
+        n = n * p
+        print(p)
+    return n
+#calculate the factorail of a number
+
 if __name__ == "__main__":
-    pass
+    print(factorial(6))
