@@ -45,5 +45,26 @@ def factorial(i):
     return n
 #calculate the factorail of a number
 
+#prime check a input number
+def primeCheck(i):
+    if i == 1:
+        return False
+    for j in range(3 ,int(math.sqrt(i)) + 1):
+        if i % j == 0:
+            return False
+    return True
+#prime check a input number
+
+#find the fibonacci sequence
+def fibonacciSeq(i):
+    p = []
+    p.append(1)
+    p.append(1)
+    p.append(2)
+    for j in range(3, i):
+        p.append(p[j-1] + p[j-2])
+    return p[i-1]
+#find the fibonacci sequence
+
 if __name__ == "__main__":
-    print(factorial(6))
+    print(fibonacciSeq(int(input())))
