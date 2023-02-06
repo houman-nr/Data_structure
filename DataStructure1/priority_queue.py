@@ -45,10 +45,11 @@ class heap:
         return ((number * 2) + 2)
 
     def addElement(self, number):
-        pass
+        self.heap.append(number)
+        self.__init__(self.heap)
 
     def popElement(self):
-        pass
+        self.heap.pop(int(len(self.heap) - 1))
 
     def isEmpty(self):
         pass
@@ -58,3 +59,5 @@ class heap:
 if __name__ == "__main__":
     test_array = [1, 5, 12, 2, 4, 8]
     heap_object = heap(test_array)
+    heap_object.addElement(int(13))
+    heap_object.popElement()
