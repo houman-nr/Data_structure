@@ -20,32 +20,29 @@ class heap:
             return "tree is not created yet"
 
     def maximize(self, k):
-        largest = self.heap[k]
+        largest = k
         l = self.left(k)
         r = self.right(k)
-        swap_index = 0
 
-        if l < int(len(self.heap)) and self.heap[l] > largest:
-            largest = self.heap[l]
-            swap_index = l
-        if r < int(len(self.heap)) and self.heap[r] > largest:
-            largest = self.heap[r]
-            swap_index = r
+        if l < int(len(self.heap)) and self.heap[l] > self.heap[k]:
+            largest = l
+        if r < int(len(self.heap)) and self.heap[r] > self.heap[largest]:
+            largest = r
 
-        if largest != self.heap[k]:
-            self.heap[k] ,self.heap[swap_index] = self.heap[swap_index], self.heap[k]
-            self.maximize(k)
+        if largest != k:
+            self.heap[k] ,self.heap[largest] = self.heap[largest], self.heap[k]
+            self.maximize(largest)
 
 
     #this fucntion was made to find the index of the left leaf of a branch
     def left(self, number):
         print(number * 2 + 1)
-        return (number * 2) + 1
+        return ((number * 2) + 1)
 
     #this fucntion was made to find the index of the right leaf of a branch
     def right(self, number):
         print(number * 2 + 2)
-        return (number * 2) + 2
+        return ((number * 2) + 2)
 
     def addElement(self, number):
         pass
