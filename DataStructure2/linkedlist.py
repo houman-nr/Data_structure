@@ -24,6 +24,16 @@ class Linked_list:
         self.head = nodeObj
         self.first_node = nodeObj
 
+    def add_middle(self, nodeObj, index):
+        i = 0
+        currentEl = self.head
+        while i != index:
+            currentEl = currentEl.nextElement
+            i += 1
+        nextEl = currentEl.nextElement
+        currentEl.nextElement = nodeObj
+        nodeObj.nextElement = nextEl
+
     def show_list(self):
         currentVal = self.head
         while currentVal != None:
@@ -34,9 +44,10 @@ class Linked_list:
 
 if __name__ == "__main__":
     linkedObj = Linked_list(Node(int(0), None))
+    linkedObj.add_end(Node(int(1), None))
     linkedObj.add_end(Node(int(2), None))
     linkedObj.add_end(Node(int(4), None))
-    linkedObj.add_end(Node(int(6), None))
-    linkedObj.add_end(Node(int(8), None))
+    linkedObj.add_end(Node(int(5), None))
     linkedObj.add_start(Node(int(-1), None))
+    linkedObj.add_middle(Node(int(3), None), 3)
     linkedObj.show_list()
