@@ -11,13 +11,18 @@ class Node:
 class Linked_list:
 
     def __init__(self, nodeObj):
-        print(nodeObj.data)
         self.head = nodeObj
         self.last_node = nodeObj
+        self.first_node = nodeObj
 
     def add_end(self, nodeObj):
         self.last_node.nextElement = nodeObj
         self.last_node = nodeObj
+
+    def add_start(self, nodeObj):
+        nodeObj.nextElement = self.first_node
+        self.head = nodeObj
+        self.first_node = nodeObj
 
     def show_list(self):
         currentVal = self.head
@@ -28,10 +33,10 @@ class Linked_list:
 #creating a linked list
 
 if __name__ == "__main__":
-    print(Node(123, None))
-    linkedObj = Linked_list(Node(int(123), None))
-    linkedObj.add_end(Node(int(1), None))
-    linkedObj.add_end(Node(int(3), None))
-    linkedObj.add_end(Node(int(5), None))
-    linkedObj.add_end(Node(int(7), None))
+    linkedObj = Linked_list(Node(int(0), None))
+    linkedObj.add_end(Node(int(2), None))
+    linkedObj.add_end(Node(int(4), None))
+    linkedObj.add_end(Node(int(6), None))
+    linkedObj.add_end(Node(int(8), None))
+    linkedObj.add_start(Node(int(-1), None))
     linkedObj.show_list()
