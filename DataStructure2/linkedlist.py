@@ -15,6 +15,26 @@ class Linked_list:
         self.last_node = nodeObj
         self.first_node = nodeObj
 
+    def delet_start(self):
+        self.head = self.head.nextElement
+
+    def delet_end(self):
+        currentVal = self.head
+        while currentVal.nextElement != self.last_node:
+            currentVal = currentVal.nextElement
+        currentVal.nextElement = None
+
+    def delet_by_index(self, index):
+        i = 0
+        currentEl = self.head
+        while i != index-1:
+            currentEl = currentEl.nextElement
+            i += 1
+        nextEl = currentEl.nextElement
+        nextEl = nextEl.nextElement
+        currentEl.nextELement = nextEl
+        
+
     def add_end(self, nodeObj):
         self.last_node.nextElement = nodeObj
         self.last_node = nodeObj
@@ -24,7 +44,7 @@ class Linked_list:
         self.head = nodeObj
         self.first_node = nodeObj
 
-    def add_middle(self, nodeObj, index):
+    def add_by_index(self, nodeObj, index):
         i = 0
         currentEl = self.head
         while i != index:
@@ -49,5 +69,7 @@ if __name__ == "__main__":
     linkedObj.add_end(Node(int(4), None))
     linkedObj.add_end(Node(int(5), None))
     linkedObj.add_start(Node(int(-1), None))
-    linkedObj.add_middle(Node(int(3), None), 3)
+    linkedObj.add_by_index(Node(int(3), None), 3)
+    linkedObj.delet_start()
+    linkedObj.delet_by_index(int(2))
     linkedObj.show_list()
