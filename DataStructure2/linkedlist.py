@@ -30,9 +30,13 @@ class Linked_list:
         while i != index-1:
             currentEl = currentEl.nextElement
             i += 1
+        
         nextEl = currentEl.nextElement
-        nextEl = nextEl.nextElement
-        currentEl.nextELement = nextEl
+        currentEl.nextElement = None
+        currentEl.nextELement = nextEl.nextElement
+        print(currentEl.data,"->")
+        #print(currentEl.nextElement.data)
+        print("deleltion:", nextEl.data)
         
 
     def add_end(self, nodeObj):
@@ -70,6 +74,5 @@ if __name__ == "__main__":
     linkedObj.add_end(Node(int(5), None))
     linkedObj.add_start(Node(int(-1), None))
     linkedObj.add_by_index(Node(int(3), None), 3)
-    linkedObj.delet_start()
     linkedObj.delet_by_index(int(2))
     linkedObj.show_list()
